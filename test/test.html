@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <title>Offsite.js Demo | OnSiteJS</title>
+        <meta charSet="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <meta name="description" content="Offsite.js Demo | OnSiteJS"/>
+        <meta name="author" content="OnSiteJS"/>
+        <meta property="og:title" content="Offsite.js Demo | OnSiteJS"/>
+        <meta property="og:image" content="https://onsitejs.org/onsitejs-web-banner.png"/>
+        <meta property="og:url" content="https://onsitejs.org"/>
+        <meta property="og:site_name" content="OnSiteJS"/>
+        <meta property="og:description" content="Offsite.js Demo | OnSiteJS"/>
+        <meta name="twitter:title" content="Offsite.js Demo | OnSiteJS"/>
+        <meta name="twitter:image" content="https://onsitejs.org/onsitejs-web-banner.png"/>
+        <meta name="twitter:url" content="https://onsitejs.org"/>
+        <meta name="twitter:card" content="Offsite.js Demo | OnSiteJS"/>
+        <link rel="icon" href="https://onsitejs.org/favicon.ico">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+        <style data-href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap">@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/spacegrotesk/v6/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVksg.woff) format('woff')}@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/spacegrotesk/v6/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVnsrPMZBSSJLm2FXTQ.woff) format('woff');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/spacegrotesk/v6/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVnsqPMZBSSJLm2FXTQ.woff) format('woff');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/spacegrotesk/v6/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVnskPMZBSSJLm2E.woff) format('woff');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            html, body { padding: 0; margin: 50px; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; } h1,h2,h3,h4,h5,h6 { font-family: Space Grotesk, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; } h6 { font-size:14px; } a { color: inherit; text-decoration: none; } * { box-sizing: border-box; } .section { padding-top: 100px; padding-bottom: 100px; position: relative; } .color-white {color:#FFFFFF} .color-blue {color:#0000ff} .bg-blue {background:#0000ff} 
+            #log { background: #ccc; color:#000; width: 100%; height:100%;}
+        </style>
+    </head>
+   <body>
+      <div data-reactroot="">
+         <div>
+            <div>
+               <div class="header">
+                  <p></p>
+                  <p class="text-left">
+                  <h4><span class="color-white bg-blue">Offsite.JS Demo | OnSiteJS</span></h4>
+                  </p>
+               </div>
+               <section class="section position-relative">
+                  <div class="container">
+                     <div class="align-items-center row">
+                        <pre id="log"></pre>
+                        <div class="col-lg-6">
+                         </div>
+                        <div class="col-lg-6">
+                        </div>
+                     </div>
+                  </div>
+               </section>
+               <section class="footer section">
+                  <div class="container">
+                     <div class="mt-5 row">
+                        <div class="col-md-12">
+                           <div style="color:#aaaaaa;">
+                              <h6>2022 © OnSiteJS | hello@onsitejs.org | <a href="https://twitter.com/onsitejs">@onsitejs</a> | <a href="https://github.com/onsitejs">GitHub</a> </h6>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </section>
+            </div>
+         </div>
+      </div>
+      <script>
+         var logger = document.getElementById('log');
+         (function () {
+            var old = console.log;
+            console.log = function (message) {
+               if (typeof message == 'object') {
+                     logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message,null,4) : message) + '<br />';
+               } else {
+                     logger.innerHTML += '[LOG] ' + message + '<br />';
+               }
+            }
+         })();
+         (function () {
+            var old = console.error;
+            console.error = function (message) {
+               if (typeof message == 'object') {
+                     logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message,null,4) : message) + '<br />';
+               } else {
+                     logger.innerHTML += '[ERROR] ' + message + '<br />';
+               }
+            }
+         })();
+         (function () {
+            var old = console.debug;
+            console.debug = function (message) {
+               if (typeof message == 'object') {
+                     logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message,null,4) : message) + '<br />';
+               } else {
+                     logger.innerHTML += '[DEBUG] ' + message + '<br />';
+               }
+            }
+         })();
+      </script>
+         <!-- CHANGE THE HOST AND PORT HERE DEPENDING ON YOUR RUNNING FUNCTION -->
+       <img src="http://localhost:8080/pixel.gif" style="display:none"></img>
+      <script src="http://localhost:8080/offsite.js"></script>
+   </body>
+</html>

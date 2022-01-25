@@ -1,0 +1,206 @@
+diff --git a/index.js b/index.js
+index f2cb413..47b0d5d 100644
+--- a/index.js
++++ b/index.js
+@@ -35,29 +35,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
+         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+     }
+ };
+-exports.__esModule = true;
+-exports.handleRequest = exports.handlePixelEndpoint = exports.handleOffsitejsEndpoint = exports.requestToObject = exports.logData = exports.gifResponse = exports.headerResponse = exports.javascriptResponse = exports.jsonResponse = exports.response204 = exports.getEndpoint = exports.simpleJavascriptPayload = exports.genUID = exports.genTS = void 0;
+ ////////////////////////////////////////////////
+ // FUNCTION:HELPER genTS
+ // generates timestamp epoch
+ ////////////////////////////////////////////////
+-function genTS() {
++export function genTS() {
+     return Number(Date.now());
+ }
+-exports.genTS = genTS;
+ //////////////////////////////////////////////////
+ // FUNCTION:HELPER genUID
+ // generates UUID4 identifier
+ //////////////////////////////////////////////////
+-function genUID() {
++export function genUID() {
+     return crypto.randomUUID();
+ }
+-exports.genUID = genUID;
+ //////////////////////////////////////////////////
+ // FUNCTION:HELPER sha256
+ // generates sha256 hash of a string
+ //////////////////////////////////////////////////
+-function sha256(msg) {
++export function sha256(msg) {
+     return __awaiter(this, void 0, void 0, function () {
+         var buffer, arrayBuffer, hash;
+         return __generator(this, function (_a) {
+@@ -77,23 +73,21 @@ function sha256(msg) {
+ // FUNCTION:HELPER simpleJavascriptPayload
+ // returns javascript source for simple payload
+ //////////////////////////////////////////////////
+-function simpleJavascriptPayload(postback_url, event_id) {
++export function simpleJavascriptPayload(postback_url, event_id) {
+     return "const postback_url = \"".concat(postback_url, "\";\nlet document_fonts = document_fullscreenEnabled = document_location = document_lastModified = document_links = document_scripts = document_referrer = null;\ntry {\n    document_fonts = document.fonts;\n} catch {}\ntry {\n    document_fullscreenEnabled = document.fullscreenEnabled;\n} catch {}\ntry {\n    document_location = document.location;\n} catch {}\ntry {\n    document_lastModified = document.lastModified;\n} catch {}\ntry {\n    document_links = document.links;\n} catch {}\ntry {\n    document_scripts = document.scripts;\n} catch {}\ntry {\n    document_referrer = document.referrer;\n} catch {}\n\nlet navigator_app = navigator_deviceMemory = navigator_doNotTrack = navigator_languages = navigator_keyboard = navigator_platform = null;\ntry {\n    navigator_app = navigator.app;\n} catch {}\ntry {\n    navigator_deviceMemory = navigator.deviceMemory;\n} catch {}\ntry {\n    navigator_doNotTrack = navigator.doNotTrack;\n} catch {}\ntry {\n    navigator_languages = navigator.languages;\n} catch {}\ntry {\n    navigator_keyboard = navigator.keyboard;\n} catch {}\ntry {\n    navigator_platform = navigator.platform\n} catch {}\n\nlet window_innerWidth = window_innerHeight = window_outerWidth = window_outerHeight = null;\ntry {\n    window_innerWidth = window.innerWidth;\n} catch {}\ntry {\n    window_innerHeight = window.window_innerHeight;\n} catch {}\ntry {\n    window_outerWidth = window.outerWidth;\n} catch {}\ntry {\n    window_outerHeight = window.window_outerHeight;\n} catch {}\n\nlet screen_width = screen_height = screen_availWidth = screen_availHeight = screen_colorDepth = screen_pixelDepth = null;\ntry {\n    screen_width = window.screen.width;\n} catch {}\ntry {\n    screen_height = window.screen.height;\n} catch {}\ntry {\n    screen_availWidth = window.screen.availWidth;\n} catch {}\n\ntry {\n    screen_availHeight = window.screen.availHeight;\n} catch {}\n\ntry {\n    screen_colorDepth = window.screen.colorDepth;\n} catch {}\n\ntry {\n    screen_pixelDepth = window.screen.pixelDepth;\n} catch {}\n\nconst raw = {\n    document: { document_fonts, document_fullscreenEnabled, document_location, document_lastModified, document_links, document_scripts, document_referrer },\n    navigator: { navigator_app, navigator_languages, navigator_keyboard, navigator_platform },\n    window: { window_innerWidth, window_innerHeight, window_outerWidth, window_outerWidth },\n    screen: { screen_width, screen_height, screen_availWidth, screen_availHeight, screen_colorDepth, screen_pixelDepth }\n}\nconst tx_ts = Number(Date.now());\nconst tx_id = crypto.randomUUID();\nconst tx_type = 'postback';\nconst event_id = '").concat(event_id, "';\nconst postback_data = { tx_ts, tx_id, tx_type, event_id, raw };\nfetch(postback_url,{\n    method: 'post',\n    mode: 'no-cors',\n    headers: {\n        'Access-Control-Allow-Origin':'*'\n    },\n    body: JSON.stringify(postback_data)\n})");
+ }
+-exports.simpleJavascriptPayload = simpleJavascriptPayload;
+ //////////////////////////////////////////////////
+ // FUNCTION:HELPER getEndpoint
+ // given a request, extract the pathname from url
+ //////////////////////////////////////////////////
+-function getEndpoint(request) {
++export function getEndpoint(request) {
+     return String(new URL(request.url).pathname);
+ }
+-exports.getEndpoint = getEndpoint;
+ //////////////////////////////////////////////////
+ // FUNCTION:RESPONSE response204
+ // returns a 204 response
+ //////////////////////////////////////////////////
+-function response204() {
++export function response204() {
+     return new Response(null, {
+         headers: {
+             'Access-Control-Allow-Headers': 'access-control-allow-origin,content-type,access-control-allow-methods',
+@@ -104,12 +98,11 @@ function response204() {
+         status: 204
+     });
+ }
+-exports.response204 = response204;
+ //////////////////////////////////////////////////
+ // FUNCTION:RESPONSE jsonResponse
+ // given an object, returns a JSON response
+ //////////////////////////////////////////////////
+-function jsonResponse(obj) {
++export function jsonResponse(obj) {
+     return new Response(JSON.stringify(obj, null, 4), {
+         headers: {
+             'Access-Control-Allow-Headers': 'access-control-allow-origin,content-type,access-control-allow-methods',
+@@ -119,12 +112,11 @@ function jsonResponse(obj) {
+         }
+     });
+ }
+-exports.jsonResponse = jsonResponse;
+ //////////////////////////////////////////////////
+ // FUNCTION:RESPONSE javascriptResponse
+ // given an string, returns a JS response
+ //////////////////////////////////////////////////
+-function javascriptResponse(script) {
++export function javascriptResponse(script) {
+     return new Response("".concat(script), {
+         headers: {
+             'Access-Control-Allow-Headers': 'access-control-allow-origin,content-type,access-control-allow-methods',
+@@ -135,22 +127,20 @@ function javascriptResponse(script) {
+         }
+     });
+ }
+-exports.javascriptResponse = javascriptResponse;
+ //////////////////////////////////////////////////
+ // FUNCTION:RESPONSE headerResponse
+ // given an headers, return empty response
+ //////////////////////////////////////////////////
+-function headerResponse(headers) {
++export function headerResponse(headers) {
+     return new Response(null, {
+         headers: headers
+     });
+ }
+-exports.headerResponse = headerResponse;
+ //////////////////////////////////////////////////
+ // FUNCTION:RESPONSE gifResponse
+ // given a gif in b64, return gif
+ //////////////////////////////////////////////////
+-function gifResponse(gifBinary) {
++export function gifResponse(gifBinary) {
+     return new Response("".concat(gifBinary), {
+         headers: {
+             'Access-Control-Allow-Headers': 'access-control-allow-origin,content-type,access-control-allow-methods',
+@@ -160,7 +150,6 @@ function gifResponse(gifBinary) {
+         }
+     });
+ }
+-exports.gifResponse = gifResponse;
+ //////////////////////////////////////////////////
+ // FUNCTION:LOG logData
+ // relays log data to a server, db, etc.
+@@ -168,7 +157,7 @@ exports.gifResponse = gifResponse;
+ // EDIT THIS FUNCTION TO LOG SESSIONS
+ //
+ //////////////////////////////////////////////////
+-function logData(obj) {
++export function logData(obj) {
+     return __awaiter(this, void 0, void 0, function () {
+         return __generator(this, function (_a) {
+             console.log(JSON.stringify(obj, null, 4));
+@@ -176,12 +165,11 @@ function logData(obj) {
+         });
+     });
+ }
+-exports.logData = logData;
+ //////////////////////////////////////////////////
+ // FUNCTION:HANDLING requestToObject
+ // extractions from request object
+ //////////////////////////////////////////////////
+-function requestToObject(request) {
++export function requestToObject(request) {
+     return __awaiter(this, void 0, void 0, function () {
+         var body, e_1, e_2, headers, _a, _b, _c, _d, _e, _f, _g, data;
+         return __generator(this, function (_h) {
+@@ -272,12 +260,11 @@ function requestToObject(request) {
+         });
+     });
+ }
+-exports.requestToObject = requestToObject;
+ //////////////////////////////////////////////////
+ // FUNCTION:HANDLING handleOffsitejsEndpoint
+ // handles requests to /offsite.js
+ //////////////////////////////////////////////////
+-function handleOffsitejsEndpoint(request) {
++export function handleOffsitejsEndpoint(request) {
+     return __awaiter(this, void 0, void 0, function () {
+         var headers, post_request, postback_data, tx_ts, tx_id, tx_type, event_id, raw, data, script_source;
+         return __generator(this, function (_a) {
+@@ -321,7 +308,6 @@ function handleOffsitejsEndpoint(request) {
+         });
+     });
+ }
+-exports.handleOffsitejsEndpoint = handleOffsitejsEndpoint;
+ //////////////////////////////////////////////////
+ // FUNCTION:HANDLING handlePixelEndpoint
+ // handles requests to /pixel.gif
+@@ -329,7 +315,7 @@ exports.handleOffsitejsEndpoint = handleOffsitejsEndpoint;
+ // light-touch analytics with 0 javascript
+ //
+ //////////////////////////////////////////////////
+-function handlePixelEndpoint(request) {
++export function handlePixelEndpoint(request) {
+     return __awaiter(this, void 0, void 0, function () {
+         var _a;
+         return __generator(this, function (_b) {
+@@ -344,12 +330,11 @@ function handlePixelEndpoint(request) {
+         });
+     });
+ }
+-exports.handlePixelEndpoint = handlePixelEndpoint;
+ //////////////////////////////////////////////////
+ // FUNCTION:HANDLING handleRequest
+ // primary router for request -> handler
+ //////////////////////////////////////////////////
+-function handleRequest(request) {
++export function handleRequest(request) {
+     return __awaiter(this, void 0, void 0, function () {
+         var endpoint, _a, e_3, _b;
+         return __generator(this, function (_c) {
+@@ -382,11 +367,10 @@ function handleRequest(request) {
+         });
+     });
+ }
+-exports.handleRequest = handleRequest;
+ //////////////////////////////////////////////////
+ // fetch handler main
+ //////////////////////////////////////////////////
+-exports["default"] = {
++export default {
+     fetch: function (request) {
+         return handleRequest(request);
+     }

@@ -1,0 +1,21 @@
+name = "offsitejs"
+type = "javascript"
+route = '*s.offsitejs.org/*'
+account_id = "aea51dba6f6be861e01205b67dcc6bab"
+zone_id = 'aa1c252ced9c33b59c41186eefb10e93'
+compatibility_flags = []
+workers_dev = false
+compatibility_date = "2022-01-24"
+
+[build]
+#command = "tsc --lib es2020,dom index.ts;patch -p1 < patchfile" # uncomment for wrangler dev command
+command = "cd src;tsc --lib es2020,dom index.ts;patch -p1 < patchfile" # miniflare build command
+
+[build.upload]
+format = "modules"
+dir = "./src"
+main = "index.js"
+
+[[build.upload.rules]]
+type = "ESModule"
+globs = ["**/*.js"]

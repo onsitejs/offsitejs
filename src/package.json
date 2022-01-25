@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "offsitejs",
+  "version": "1.0.0",
+  "description": "offsitejs: decentralized website analytics",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd src; tsc --lib es2020,dom index.ts;patch -p1 < patchfile"
+  },
+  "author": "Aaron DeVera <aaron@backchannel.re>",
+  "license": "MIT",
+  "devDependencies": {
+  }
+}
