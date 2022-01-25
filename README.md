@@ -1,18 +1,19 @@
-<center>
+<p align="center">
 <img src="https://onsitejs.org/offsite_rec.png" alt="OffSiteJS" style="width:250px;"/>
-<p>
-
 </p>
-<p>
+
+<p align="center">
 📊 Tiny, decentralized analytics<br>
 🧠 privacy by design<br>
 🎉 Free and open source
 </p>
 
+<p align="center">
+<a href="https://deploy.workers.cloudflare.com/?url=https://github.com/onsitejs/offsitejs">
+<img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers" style="width:130px;"/></a> <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+</p>
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/onsitejs/offsitejs)
-
-</center>
 
 ------------
 
