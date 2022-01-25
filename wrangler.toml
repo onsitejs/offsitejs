@@ -9,7 +9,7 @@ compatibility_date = "2022-01-24"
 
 [build]
 #command = "npx -p typescript tsc --lib es2020,dom index.ts;patch -p1 < patchfile" # uncomment for wrangler dev command
-command = "cd src;tsc --lib es2020,dom index.ts;patch -p1 < patchfile" # miniflare build command
+command = "cd src;npx -p typescript tsc --lib es2020,dom index.ts;patch -p1 < patchfile" # miniflare build command
 
 [build.upload]
 format = "modules"
