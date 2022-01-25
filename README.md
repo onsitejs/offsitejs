@@ -111,8 +111,9 @@ And of course, you are welcome to [**launch a pull request**](https://github.com
 ## Design and Development Decisions
 The point of this project is to provide web analytics without the hassle of signing up for a service or a 3rd party.
 
-There is false dichotomy between being able to conduct deep signals collection and protecting user privacy. Several proponents of the *privacy by design* school of thought
-We also don't want to lose out on data key to valuable insights. This can be accomplished without sacrificing privacy.
+There is false dichotomy between being able to conduct deep signals collection and protecting user privacy. Several proponents of the *privacy by design* school of thought [have demonstrated there are plenty of technological opportunites](https://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-014-0010-4) to provide better privacy-conscious experiences on the web.
+
+We also don't want to lose out on data key to valuable insights. But those insights cannot come at the cost of  sacrificing privacy. Ideally, OffSiteJS would provide a library to automate the aggregation of data so no one individual session can being targeted, or is perhaps presented in the context of a *frequency vector* for that specific field to show anomalies without showing individual sessions.
 
 ### Core Principles
 1. Decentralize where possible.
@@ -151,6 +152,7 @@ The roadmap is somewhat open, as I am not completely sure how this will be accom
 
 ## References
 - [Privacy by Design: Little Blue Book](https://www.cs.ru.nl/~jhh/publications/pds-booklet.pdf)
+- [Privacy-by-design in big data analytics and social mining](https://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-014-0010-4)
 - [Ask HN: Good open source alternatives to Google Analytics?](https://news.ycombinator.com/item?id=29888599)
 - [@aeolianeth on Twitter: "are dapps tracking you?"](https://twitter.com/aeolianeth/status/1485460799540051968)
 - [Cloudflare blog on Web3](https://blog.cloudflare.com/what-is-web3/)
