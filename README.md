@@ -47,7 +47,7 @@
 ## Using OffSiteJS
 There are two options for using OffSiteJS: the use of a pixel, or with the JavaScript payload.
 
-⛔**Logging is currently limited to `console.log()`. Integrations forthcoming.**⛔
+⛔ **Logging is currently limited to `console.log()`. Integrations forthcoming.** ⛔
 
 ### Pixel analytics
 Place the following tag on your webpage:
@@ -75,13 +75,12 @@ https://analytics.yourwebsite.com/offsite.js
 ## Running Locally and On Server
 With [`miniflare`](https://github.com/cloudflare/miniflare) (recommended):
 ```
-miniflare src/index.js  -c src/wrangler.toml -w -d --host 127.0.0.1 --port 8080
+miniflare src/index.js  -c wrangler.toml -w -d --host 127.0.0.1 --port 8080
 ```
 As you might imagine for `miniflare`, the host can be changed to `0.0.0.0` and the port `80` should you want to run this on a host, server, VPS. There are no dependencies other than `miniflare` needed to do this.
 
 with [`wrangler`](https://github.com/cloudflare/wrangler):
 ```
-# must be in src/ directory: cd src
 wrangler dev
 ```
 
